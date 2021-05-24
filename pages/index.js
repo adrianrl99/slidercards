@@ -1,13 +1,32 @@
-import { Anchor, Box, Heading, Paragraph } from 'grommet'
+import { Anchor, Box, Heading, Paragraph } from "grommet";
+import CustomCard from "../src/components/CustomCard";
+import SliderCards from "../src/components/SliderCards";
 
 export default function Home() {
   return (
-    <Box align="center" margin="large">
-      <Heading>Grommet is awesome!</Heading>
-      <Paragraph>
-        Find out more at{' '}
-        <Anchor href="https://v2.grommet.io/">https://v2.grommet.io/</Anchor>
-      </Paragraph>
+    <Box margin="large">
+      <SliderCards title={"Carrusel"}>
+        {Array(20)
+          .fill()
+          .map((_, index) => (
+            <CustomCard
+              key={index}
+              imageSrc="/images/fondo.jpeg"
+              title="Tarjeta"
+            />
+          ))}
+      </SliderCards>
+      <SliderCards title={"Carrusel sin botones"}>
+        {Array(5)
+          .fill()
+          .map((_, index) => (
+            <CustomCard
+              key={index}
+              imageSrc="/images/fondo.jpeg"
+              title="Tarjeta"
+            />
+          ))}
+      </SliderCards>
     </Box>
-  )
+  );
 }
