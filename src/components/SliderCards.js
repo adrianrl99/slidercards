@@ -1,13 +1,14 @@
 import PreviousButton from "./PreviousButton";
 import NextButton from "./NextButton";
 import { Box } from "grommet";
+import { Next, Previous } from "grommet-icons";
 import { useEffect, useRef, useState } from "react";
 
 export default function SliderCards({
   stepWidth = 100,
   title,
-  previous,
-  next,
+  previous = <Previous />,
+  next = <Next />,
   children,
 }) {
   const contentRef = useRef();
@@ -16,23 +17,6 @@ export default function SliderCards({
   const [end, setEnd] = useState(0);
   const [current, setCurrent] = useState(0);
   const [show, setShow] = useState(false);
-
-  previous = (
-    <PreviousButton
-      stepWidth={stepWidth}
-      current={current}
-      setCurrent={setCurrent}
-      start={start}
-    />
-  );
-  next = (
-    <NextButton
-      stepWidth={stepWidth}
-      current={current}
-      setCurrent={setCurrent}
-      end={end}
-    />
-  );
 
   useEffect(() => {
     setWidth();
@@ -56,9 +40,27 @@ export default function SliderCards({
         {show && (
           <Box flex={{ shrink: 0 }} direction="row" justify="end">
             {current > start && (
-              <Box style={{ marginRight: 20 }}>{previous}</Box>
+              <Box style={{ marginRight: 20 }}>
+                <PreviousButton
+                  stepWidth={stepWidth}
+                  current={current}
+                  setCurrent={setCurrent}
+                  start={start}
+                  icon={previous}
+                />
+              </Box>
             )}
-            {current < end && <Box>{next}</Box>}
+            {current < end && (
+              <Box>
+                <NextButton
+                  stepWidth={stepWidth}
+                  current={current}
+                  setCurrent={setCurrent}
+                  end={end}
+                  icon={next}
+                />
+              </Box>
+            )}
           </Box>
         )}
       </Box>

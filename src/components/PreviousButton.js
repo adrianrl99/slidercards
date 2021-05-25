@@ -1,11 +1,11 @@
 import { Button } from "grommet";
-import { Previous } from "grommet-icons";
 
 export default function PrevoiusButton({
   stepWidth,
   start,
   current,
   setCurrent,
+  icon,
 }) {
   return (
     <Button
@@ -17,7 +17,7 @@ export default function PrevoiusButton({
         }
       }}
     >
-      <Previous />
+      {icon}
     </Button>
   );
 }

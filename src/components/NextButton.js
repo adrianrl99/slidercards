@@ -1,7 +1,12 @@
 import { Button } from "grommet";
-import { Next } from "grommet-icons";
 
-export default function NextButton({ stepWidth, end, current, setCurrent }) {
+export default function NextButton({
+  stepWidth,
+  end,
+  current,
+  setCurrent,
+  icon,
+}) {
   return (
     <Button
       onClick={() => {
@@ -12,7 +17,7 @@ export default function NextButton({ stepWidth, end, current, setCurrent }) {
         }
       }}
     >
-      <Next />
+      {icon}
     </Button>
   );
 }

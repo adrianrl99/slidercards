@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardBody, Image, Box } from "grommet";
+import { Card, CardBody, Image } from "grommet";
 
 export default function CustomCard({ imageSrc, title }) {
   return (
